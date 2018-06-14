@@ -9,7 +9,7 @@ namespace StringShorten
 {
     class Program
     {
-        public static string transform(string sentence)
+        public static string parse(string sentence)
         {
             string result = null;
             string sub = null;
@@ -39,14 +39,23 @@ namespace StringShorten
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter a string: ");
-            string sentence = Console.ReadLine();
+            string sentence = "z";
 
-            Console.WriteLine("Your sentence: " + sentence);
+            while (sentence != "q" || sentence != "Q")
+            {
+                Console.WriteLine("Please enter a string (Q/q to quit): ");
 
-            transform(sentence);
+                sentence = Console.ReadLine();
+
+                if (sentence == "q" || sentence == "Q")
+                    break;
+
+                Console.WriteLine("Your sentence is: " + sentence);
+
+                parse(sentence);
+            }            
                         
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
