@@ -8,6 +8,11 @@ namespace StringShorten
 {
     class Program
     {
+        public static void transform(string sentence)
+        {
+
+        }
+
         static void Main(string[] args)
         {
         }
