@@ -5,41 +5,31 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+/*
+In the programming language of your choice, write a method that
+modifies a string using the following rules:
+
+1. Each word in the input string is replaced with the following:
+the first letter of the word, the count of distinct letters
+between the first and last letter, and the last letter of the
+word. For example, "Automotive parts" would be replaced by
+"A6e p3s".
+
+2. A "word" is defined as a sequence of alphabetic characters,
+delimited by any non-alphabetic characters.
+
+3. Any non-alphabetic character in the input string should appear
+in the output string in its original relative location.
+*/
+
 namespace StringShorten
 {
     class Program
-    {
-        public static string parse(string sentence)
-        {
-            string result = null;
-            string sub = null;
-
-            string[] words = Regex.Split(sentence, "([^a-zA-Z]+)");
-            foreach (string word in words)
-            {
-                if (Regex.IsMatch(word, @"^[a-zA-Z]+$") && word.Length > 1)
-                {
-                    // First letter
-                    result += word[0];
-
-                    // Unique letter count
-                    sub = word.Substring(1, word.Length - 2);
-                    result += sub.Distinct().Count().ToString();
-
-                    // Last letter
-                    result += word[word.Length - 1];
-                }
-                else
-                    result += word;
-            }
-                Console.WriteLine(result);
-
-            return result;
-        }
-
+    {        
         static void Main(string[] args)
         {
             string sentence = "z";
+            StringShorten ss = new StringShorten();
 
             while (sentence != "q" || sentence != "Q")
             {
@@ -52,10 +42,8 @@ namespace StringShorten
 
                 Console.WriteLine("Your sentence is: " + sentence);
 
-                parse(sentence);
-            }            
-                        
-            //Console.ReadLine();
+                ss.parse(sentence);
+            }
         }
     }
 }
